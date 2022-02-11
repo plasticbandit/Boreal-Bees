@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/theme.json",
     "version": 2,
     "settings": {
         "color": {
@@ -24,6 +24,10 @@
                     "slug": "white"
                 }
             ]
+        },
+        "layout": {
+            "contentSize": "1000px",
+            "wideSize": "1200px"
         }
     }
 }

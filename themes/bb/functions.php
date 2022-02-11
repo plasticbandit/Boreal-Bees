@@ -100,7 +100,7 @@ function bb_setup() {
 		)
 	);
 
-	// add_theme_support( 'wp-block-styles' )
+	add_theme_support( 'wp-block-styles' );
 }
 add_action( 'after_setup_theme', 'bb_setup' );
 
