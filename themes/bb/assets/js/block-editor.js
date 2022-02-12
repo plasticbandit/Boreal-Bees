@@ -1,7 +1,7 @@
-wp.blocks.registerBlockStyle( 'core/quote', {
-    name: 'fancy-quote',
-    label: 'Fancy Quote',
-} );
+// wp.blocks.registerBlockStyle( 'core/quote', {
+//     name: 'fancy-quote',
+//     label: 'Fancy Quote',
+// } );
 
 wp.domReady( function () {
     // reference slug to remove block
