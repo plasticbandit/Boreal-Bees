@@ -1,0 +1,24 @@
+.composite-title span {
+    font-size: 4.5rem;
+    font-family: timberline,sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.composite-title {
+    text-transform: uppercase;
+    
+    display: flex;
+    flex-flow: row;
+    align-items: baseline;
+}
+
+.composite-title h2 {
+    letter-spacing: 0.2rem;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+}
+
+span.block-editor::placeholder {
+    font-family: Arial, Helvetica, sans-serif;
+}
