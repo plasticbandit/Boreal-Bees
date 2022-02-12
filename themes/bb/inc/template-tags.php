@@ -7,8 +7,6 @@
  * @package Boreal_Bees
  */
 
-// creates date and author
-
 if ( ! function_exists( 'bb_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.

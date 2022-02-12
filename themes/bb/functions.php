@@ -49,7 +49,7 @@ function bb_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'bb' ),
+			'primary' => esc_html__( 'Primary', 'bb' ),
 		)
 	);
 
@@ -70,18 +70,6 @@ function bb_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	// add_theme_support(
-	// 	'custom-background',
-	// 	apply_filters(
-	// 		'bb_custom_background_args',
-	// 		array(
-	// 			'default-color' => 'ffffff',
-	// 			'default-image' => '',
-	// 		)
-	// 	)
-	// );
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -99,8 +87,6 @@ function bb_setup() {
 			'flex-height' => true,
 		)
 	);
-
-	add_theme_support( 'wp-block-styles' );
 }
 add_action( 'after_setup_theme', 'bb_setup' );
 
@@ -112,6 +98,7 @@ add_action( 'after_setup_theme', 'bb_setup' );
  * @global int $content_width
  */
 function bb_content_width() {
+	// !CHANGE WIDTH TO MATCH FRONT END
 	$GLOBALS['content_width'] = apply_filters( 'bb_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'bb_content_width', 0 );
@@ -125,7 +112,7 @@ function bb_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'bb' ),
-			'id'            => 'sidebar-1',
+			'id'            => 'sidebar',
 			'description'   => esc_html__( 'Add widgets here.', 'bb' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -140,6 +127,7 @@ add_action( 'widgets_init', 'bb_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bb_scripts() {
+	// !CHANGE TO APP.CSS
 	wp_enqueue_style( 'bb-style', get_stylesheet_uri(), array(), BB_VERSION );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -147,8 +135,6 @@ function bb_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bb_scripts' );
-
-// Remove custom header file
 
 /**
  * Custom template tags for this theme.
@@ -158,14 +144,9 @@ require get_template_directory() . '/inc/template-tags.php';
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Block Editor additions.
- */
-require get_template_directory() . '/inc/block-editor.php';
