@@ -1,5 +1,3 @@
-<!-- enqueue JS -->
-
 <?php
 /**
  * Functions which enhance the theme by utilizing the block editor in WordPress
