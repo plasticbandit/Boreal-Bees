@@ -8,9 +8,35 @@
             "custom": false,
             "palette": [
                 {
-                    "color": "#ff5252",
-                    "name": "Grapefruit",
-                    "slug": "grapefruit"
+                    "color": "#F8D7AB",
+                    "name": "Beige",
+                    "slug": "beige"
+                },
+                {
+                    "color": "#573F2C",
+                    "name": "Brown",
+                    "slug": "brown"
+                    
+                },
+                {
+                    "color": "#F8F6F7",
+                    "name": "Grey",
+                    "slug": "grey"
+                },
+                {
+                    "color": "#D7B7F2",
+                    "name": "Lilac",
+                    "slug": "lilac"
+                },
+                {
+                    "color": "#e2cff2",
+                    "name": "PaleLilac",
+                    "slug": "palelilac"
+                },
+                {
+                    "color": "#FABE56",
+                    "name": "Gold",
+                    "slug": "gold"
                 },
                 {
                     "color": "#000000",
@@ -22,6 +48,7 @@
                     "color": "#ffffff",
                     "name": "White",
                     "slug": "white"
+                    
                 }
             ]
         },
