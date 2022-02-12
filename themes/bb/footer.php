@@ -30,5 +30,8 @@
 
 <?php wp_footer(); ?>
 
+<!-- font awesome icons -->
+<script src="https://kit.fontawesome.com/3238166796.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

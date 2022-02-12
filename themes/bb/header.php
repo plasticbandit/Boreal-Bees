@@ -16,7 +16,10 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<!-- typekit fonts -->
 	<link rel="stylesheet" href="https://use.typekit.net/vep7hso.css">
+	<!-- font awesome icons -->
+	<script src="https://kit.fontawesome.com/3238166796.js" crossorigin="anonymous"></script>
 
 	<?php wp_head(); ?>
 </head>
