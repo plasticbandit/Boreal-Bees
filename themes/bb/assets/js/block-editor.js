@@ -8,6 +8,11 @@ wp.blocks.registerBlockStyle( 'core/image', {
     label: 'Boxed Image',
 } );
 
+wp.blocks.registerBlockStyle( 'core/table', {
+    name: 'striped',
+    label: 'Striped Table',
+} );
+
 wp.blocks.registerBlockStyle( 'core/heading', {
     name: 'fancy-title',
     label: 'Fancy Title',

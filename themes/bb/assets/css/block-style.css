@@ -52,7 +52,16 @@ font-style: italic;
 }
 
 .wp-block-quote cite {
+    letter-spacing: 0.1rem;
     text-transform: uppercase;
+}
+
+.wp-block-table td {
+    border: none;
+}
+
+.wp-block-table.is-style-striped:nth-of-type(1n){
+    background-color: var(--wp--preset--color--grey);
 }
 
 .site-main > *{
