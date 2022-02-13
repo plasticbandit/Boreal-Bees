@@ -11,6 +11,10 @@ a:hover {
     text-decoration: underline;
 }
 
+.site-main .entry-title {
+    display: none;
+}
+
 strong {
     font-weight: 700;
 }
