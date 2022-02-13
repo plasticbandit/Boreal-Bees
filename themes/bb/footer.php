@@ -12,18 +12,43 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bb' ) ); ?>">
+		<div class="social-content">
+			<p><i class="fa-regular fa-envelope-open"></i> Join our mailing list</p>
+			<input class="footer-email-input" placeholder="Your email" />
+			<button class="footer-email-button">Go</button>
+			<div id="social-footer">
+			<?php
+				get_sidebar( 'social');
+			?>
+			</div>
+		</div>
+		<div class="footer-icon-container">
+		<img class="footer-logo-icon" src="<?php site_icon_url()?>" alt="Boreal Bees" />
+		</div><!--site icon -->
+		<div class="site-info-container">
+			<nav id="site-navigation" class="main-navigation">
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'bb' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
+				wp_nav_menu(
+							array(
+								'theme_location' => 'footer-menu',
+								'menu_id'        => 'footer-menu',
+							)
+						);
+						?>
+			</nav>
+			<div class="footer-credits">
 				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'bb' ), 'bb', '<a href="https://nicolamaydesign.ca">Nicola McFadden</a>' );
-				?>
+					/* translators: 1: Theme name, 2: Theme author. */
+					printf( esc_html__( 'Copyright %2$s 2022.', 'bb' ), 'bb', '<a target="_blank" href="https://nicolamaydesign.ca">Nicola McFadden</a>' );
+					?>
+				<span class="sep"> | </span>
+				<a target="_blank" href="<?php echo esc_url( __( 'https://wordpress.org/', 'bb' ) ); ?>">
+					<?php
+					/* translators: %s: CMS name, i.e. WordPress. */
+					printf( esc_html__( 'Powered by %s.', 'bb' ), 'WordPress' );
+					?>
+				</a>
+			</div>			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -50,7 +50,8 @@ function bb_setup() {
 	register_nav_menus(
 		array(
 			'primary' => esc_html__( 'Primary', 'bb' ),
-			'header-menu' => __( 'Header Menu' )
+			'header-menu' => __( 'Header Menu' ),
+			'footer-menu' => __( 'Footer Menu' )
 		)
 	);
 
@@ -116,6 +117,17 @@ function bb_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar', 'bb' ),
 			'id'            => 'sidebar',
+			'description'   => esc_html__( 'Add widgets here.', 'bb' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Social', 'bb' ),
+			'id'            => 'social',
 			'description'   => esc_html__( 'Add widgets here.', 'bb' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
