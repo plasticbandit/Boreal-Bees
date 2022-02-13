@@ -1,24 +1,84 @@
+/* ADOBE FONTS */
+/* font-family: timberline,sans-serif;
+font-weight: 400;
+font-style: normal; */
 
-.wp-block-quote {
-    color: blue;
+/* Gill Sans Nova Bold
+font-family: gill-sans-nova, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Gill Sans Nova Bold Italic
+font-family: gill-sans-nova, sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Gill Sans Nova Book
+font-family: gill-sans-nova, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Gill Sans Nova Book Italic
+font-family: gill-sans-nova, sans-serif;
+font-weight: 400;
+font-style: italic;
+ */
+
+
+* {
+    font-family: gill-sans-nova, sans-serif;
+    font-weight: 400;
+}
+
+.site-header, .site-main, .site-footer {
+    color: var(--wp--preset--color--brown);
+}
+
+.wp-block-post-title, .entry-title {
+    font-size: 4rem;
+    font-family: timberline,sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.wp-block-heading, h2 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
 }
 
 .wp-block-quote.is-style-fancy-quote {
     color: tomato;
 }
 
-.entry-content > *{
-    width: 1000px;
+.wp-block-quote cite {
+    text-transform: uppercase;
+}
+
+.site-main > *{
+    width: 1280px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .alignwide {
-    width: 1200px;
+    width: 1280px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .alignfull {
+    width: 100%;
+}
+
+/* media */
+
+.wp-block-image.is-style-boxed-image img {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5rem solid var(--wp--preset--color--grey);
+}
+
+.wp-block-image.is-style-boxed-image figcaption {
     width: 100%;
 }
