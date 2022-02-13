@@ -64,6 +64,36 @@ font-style: italic;
     background-color: var(--wp--preset--color--grey);
 }
 
+.wp-calendar-table {
+    background-color: var(--wp--preset--color--grey);
+}
+
+.wp-block-calendar caption {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.wp-block-calendar table th {
+    background: var(--wp--preset--color--gold);
+    border-color: var(--wp--preset--color--gold);
+}
+
+.wp-calendar-table tbody td {
+    border-color: transparent;
+}
+
+.wp-calendar-table #today {
+    background-color: var(--wp--preset--color--palelilac);
+}
+
+.wp-calendar-table a {
+    color: var(--wp--preset--color--palelilac);
+}
+
+.wp-calendar-table #today a {
+    color: var(--wp--preset--color--grey);
+}
+
 .site-main > *{
     width: 1280px;
     margin-left: auto;
