@@ -10,3 +10,83 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+strong {
+    font-weight: 700;
+}
+
+.wpfront-notification-bar table {
+    padding: 0.5rem 0;
+}
+
+.custom-logo {
+    width: 12rem;
+    height: auto;
+}
+
+.header-logo-icon {
+    width: 3rem;
+    height: auto;
+}
+
+.site-header-sticky {
+    position: sticky;
+    top:4.5rem;
+    z-index: 10;
+}
+
+.site-header {
+    background-color: var(--wp--preset--color--grey);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.25);
+}
+
+.site-header > div {
+    width: 30%;
+}
+
+.site-header > div:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+}
+
+.site-header > div:nth-of-type(3) {
+    display: flex;
+    justify-content: right;
+}
+
+.menu  {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-flow: row;
+}
+
+.menu >* {
+    padding-left: 1rem;
+}
+
+.sub-menu {
+    display: none;
+    transition: all 0.3s ease-in-out;
+    list-style: none;
+    text-align: right;
+    padding-left: 0;
+    padding-top: 0.5rem;
+
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+
+.hamburger-menu:hover .sub-menu {
+    display: unset;
+}
+
