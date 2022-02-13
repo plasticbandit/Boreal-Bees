@@ -27,25 +27,27 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'bb' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			?>
-			<img class="header-logo-icon" src="assets/img/boreal-bees-icon.png" alt="Boreal Bees" />
-			<?php
-		
-			 ?>
+	<header id="masthead" class="site-header site-header-sticky">
+		<div class="branding-container">
+			<div class="site-branding">
+				<?php
+					the_custom_logo();
+				?>
+			</div>	
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<div class="header-icon-container">
+		<img class="header-logo-icon" src="<?php site_icon_url()?>" alt="Boreal Bees" />
+		</div><!--site icon -->
+		<div class="site-nav-container">
+			<nav id="site-navigation" class="main-navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
