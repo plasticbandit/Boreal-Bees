@@ -53,21 +53,7 @@
         },
         "layout": {
             "contentSize": "1000px",
-            "wideSize": "1200px"
-        },
-        "typography": {
-			"fontFamilies": [
-				{
-					"fontFamily": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-					"slug": "system-fonts",
-					"name": "System fonts"
-				},
-				{
-					"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
-					"slug": "helvetica-arial",
-					"name": "Helvetica or Arial"
-				}
-			]
-		}
+            "wideSize": "1280px"
+        }
     }
 }
