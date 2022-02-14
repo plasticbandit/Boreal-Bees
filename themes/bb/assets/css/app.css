@@ -1,6 +1,7 @@
 body {
     background-color: var(--wp--preset--color--beige);
 }
+
 a {
     color: var(--wp--preset--color--brown);
     text-decoration: none;
@@ -68,7 +69,6 @@ strong {
     padding-left: 0;
     display: flex;
     flex-flow: row;
-    
 }
 
 #footer-menu {
@@ -97,7 +97,6 @@ strong {
     text-align: right;
     padding-left: 0;
     padding-top: 0.5rem;
-
 }
 
 .hamburger-menu {
@@ -110,12 +109,37 @@ strong {
     display: unset;
 }
 
-.connect-area {
+.home-feature {
+    position: relative;
+}
+
+.home-feature-overlay figure {
+    width: 75%;
+    margin: 0;
+}
+
+.home-feature-overlay {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    padding: 3rem;
+}
+
+.home-boxed-image {
+    margin-bottom :0;
+}
+
+.connect-area, .featured-products-container {
     background-color: var(--wp--preset--color--grey);
     padding: 5rem 0;
 }
 
-.connect-container {
+.connect-container, .featured-products {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -164,6 +188,7 @@ strong {
 fieldset {
     border: none;
     padding: 0;
+    margin-top: 1rem;
 }
 
 fieldset div {
@@ -182,6 +207,10 @@ fieldset input, fieldset textarea {
     background-color: var(--wp--preset--color--grey);
     font-size: 1rem;
     max-width: 60%;
+}
+
+fieldset textarea {
+    height: 10rem;
 }
 
 .site-footer {
