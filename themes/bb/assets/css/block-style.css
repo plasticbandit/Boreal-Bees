@@ -24,6 +24,7 @@ font-weight: 400;
 font-style: italic;
  */
 
+ /* general styles */
 
 * {
     font-family: gill-sans-nova, sans-serif;
@@ -33,6 +34,24 @@ font-style: italic;
 .site-header, .site-main, .site-footer {
     color: var(--wp--preset--color--brown);
 }
+
+.site-main > *{
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignwide {
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignfull {
+    width: 100%;
+}
+
+/* text items */
 
 .wp-block-post-title, .entry-title {
     font-size: 4rem;
@@ -94,23 +113,7 @@ font-style: italic;
     color: var(--wp--preset--color--grey);
 }
 
-.site-main > *{
-    width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.alignwide {
-    width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.alignfull {
-    width: 100%;
-}
-
-/* media */
+/* media items */
 
 .wp-block-image figcaption {
     color: var(--wp--preset--color--brown);
@@ -170,6 +173,8 @@ font-style: italic;
     color: var(--wp--preset--color--beige);
     text-decoration: none;
 }
+
+/* design items */
 
 .wp-block-button.is-style-secondary .wp-block-button__link {
     border: 4px solid var(--wp--preset--color--lilac);
