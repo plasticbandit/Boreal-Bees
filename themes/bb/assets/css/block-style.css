@@ -254,3 +254,30 @@ p.is-style-emphasis {
     font-weight: 400;
     margin: 0;
 }
+
+.composite-centered {
+    justify-content: center;
+}
+
+/* woocommerce */
+
+.wc-featured-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wc-block-featured-product {
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.10);
+    width: 30%;
+}
+
+.wc-block-featured-product .wc-block-featured-product__title, .wc-block-featured-product .wc-block-featured-product__description, .wc-block-featured-product .wc-block-featured-product__price {
+    color: var(--wp--preset--color--brown);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.wc-block-featured-product .wc-block-featured-product__link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
