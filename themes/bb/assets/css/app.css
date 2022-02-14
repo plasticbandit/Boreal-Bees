@@ -110,6 +110,79 @@ strong {
     display: unset;
 }
 
+.connect-area {
+    background-color: var(--wp--preset--color--grey);
+    padding: 5rem 0;
+}
+
+.connect-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1280px;
+    
+}
+
+.connect-container .wp-block-gallery {
+    width: 60%;
+    min-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email-connect {
+    background-color: var(--wp--preset--color--palelilac);
+    padding: 2rem 4rem;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.email-connect .footer-email-input {
+    margin: 0 1rem;
+    width: 40%;
+    padding-left: 1rem;
+}
+
+.email-connect .footer-email-button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1rem;
+}
+
+.contact-section {
+    width: 100%;
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.contact-section >* {
+    width: 50%;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+fieldset div {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 1rem;
+}
+fieldset label {
+    margin-bottom: 0.5rem;
+}
+
+fieldset input, fieldset textarea {
+    padding: 1rem;
+    min-height: 1rem;
+    border: none;
+    background-color: var(--wp--preset--color--grey);
+    font-size: 1rem;
+    max-width: 60%;
+}
 
 .site-footer {
     position: relative;
@@ -157,7 +230,7 @@ strong {
 }
 
 .footer-email-button {
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
     border: 2px solid var(--wp--preset--color--grey);
     background: transparent;
     text-transform: uppercase;
