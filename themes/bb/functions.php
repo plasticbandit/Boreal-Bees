@@ -91,6 +91,12 @@ function bb_setup() {
 	);
 
 	add_theme_support( 'wp-block-styles' );
+
+	/**
+	 * Add support for custom page title structure & styling (plugin).
+	*/
+
+	add_theme_support( 'wp-block-nicola-gutenberg-composite-title-block' );
 }
 add_action( 'after_setup_theme', 'bb_setup' );
 
@@ -128,6 +134,17 @@ function bb_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Social', 'bb' ),
 			'id'            => 'social',
+			'description'   => esc_html__( 'Add widgets here.', 'bb' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Connect', 'bb' ),
+			'id'            => 'connect',
 			'description'   => esc_html__( 'Add widgets here.', 'bb' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
