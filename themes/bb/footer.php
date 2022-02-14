@@ -48,15 +48,12 @@
 					printf( esc_html__( 'Powered by %s.', 'bb' ), 'WordPress' );
 					?>
 				</a>
-			</div>			
+			</div><!-- footer-credits -->			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
-<!-- font awesome icons -->
-<script src="https://kit.fontawesome.com/3238166796.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
