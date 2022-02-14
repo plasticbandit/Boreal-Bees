@@ -1,8 +1,3 @@
-// wp.blocks.registerBlockStyle( 'core/post-title', {
-//     name: 'fancy-title',
-//     label: 'Fancy Title',
-// } );
-
 wp.blocks.registerBlockStyle( 'core/image', {
     name: 'boxed-image',
     label: 'Boxed Image',
@@ -48,16 +43,11 @@ wp.blocks.registerBlockStyle( 'core/paragraph', {
     label: 'Emphasis',
 } );
 
-wp.blocks.registerBlockStyle( 'core/heading', {
-    name: 'fancy-title',
-    label: 'Fancy Title',
-} );
-
 wp.domReady( function () {
     // reference slug to remove block
-    // "core/quote" is data-type attributec
+    // "core/quote" is data-type attribute
     wp.blocks.unregisterBlockStyle( 'core/image', 'rounded' );
     wp.blocks.unregisterBlockStyle( 'core/button', 'fill' );
     wp.blocks.unregisterBlockStyle( 'core/button', 'outline' );
-    // wp.blocks.unregisterBlockStyle( 'core/quote', 'plain' );
+    wp.blocks.unregisterBlockStyle( 'core/social-link', 'pill' );
 } );
