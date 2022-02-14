@@ -248,3 +248,9 @@ font-style: italic;
     border: none;
     background: var(--wp--preset--color--grey);
 }
+
+p.is-style-emphasis {
+    font-family: timberline,sans-serif;
+    font-weight: 400;
+    margin: 0;
+}

@@ -43,6 +43,11 @@ wp.blocks.registerBlockStyle( 'core/group', {
     label: 'Collage Group Left',
 } );
 
+wp.blocks.registerBlockStyle( 'core/paragraph', {
+    name: 'emphasis',
+    label: 'Emphasis',
+} );
+
 wp.blocks.registerBlockStyle( 'core/heading', {
     name: 'fancy-title',
     label: 'Fancy Title',
