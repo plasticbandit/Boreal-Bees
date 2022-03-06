@@ -176,8 +176,9 @@ function bb_scripts() {
         'app-style',
         get_template_directory_uri() . '/assets/css/app.css'
     );
-	wp_register_style( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
-	wp_enqueue_style( 'fontawesome');
+	wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
+	wp_enqueue_script( 'fontawesome');
+	// register script
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
