@@ -180,6 +180,11 @@ strong {
 
 .contact-section >* {
     width: 50%;
+    margin-right: 8rem;
+}
+
+#contact-details {
+    margin-top: 0;
 }
 
 fieldset {
@@ -208,6 +213,34 @@ fieldset input, fieldset textarea {
 
 fieldset textarea {
     height: 10rem;
+}
+
+/* WP FORMS */
+div.wpforms-container-full .wpforms-form button[type=submit] {
+    background: transparent;
+    border: 3px solid var(--wp--preset--color--brown);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: var(--wp--preset--color--brown);
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+div.wpforms-container-full .wpforms-form button[type=submit]:hover {
+    background-color: var(--wp--preset--color--brown);
+    color: var(--wp--preset--color--beige);
+    border: 3px solid var(--wp--preset--color--brown);
+}
+
+div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form input[type=email], div.wpforms-container-full .wpforms-form textarea  {
+    border: none;
+    padding: 1.5rem 1rem;
+}
+
+.fa-phone, .fa-envelope {
+    margin-right: 0.5rem;
 }
 
 /* footer */
