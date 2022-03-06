@@ -169,15 +169,16 @@ add_action( 'widgets_init', 'bb_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
 function bb_scripts() {
-	// !CHANGE TO APP.CSS
+
 	wp_enqueue_style( 'bb-style', get_stylesheet_uri(), array(), BB_VERSION );
 	wp_enqueue_style( 
         'app-style',
         get_template_directory_uri() . '/assets/css/app.css'
     );
-	wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
-	wp_enqueue_script( 'fontawesome');
+	// wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
+	// wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
 	// register script
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -185,6 +186,27 @@ function bb_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bb_scripts' );
+
+/**
+	 * Font Awesome Kit Setup
+	 * 
+	 * This will add your Font Awesome Kit to the front-end, the admin back-end,
+	 * and the login screen area.
+	 */
+	if (! function_exists('fa_custom_setup_kit') ) {
+		function fa_custom_setup_kit($kit_url = '') {
+		foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
+			add_action(
+			$action,
+			function () use ( $kit_url ) {
+				wp_enqueue_script( 'font-awesome-kit', $kit_url, [], null );
+			}
+			);
+		}
+		}
+	}
+
+	fa_custom_setup_kit('https://kit.fontawesome.com/3238166796.js');
 
 /**
  * Custom template tags for this theme.

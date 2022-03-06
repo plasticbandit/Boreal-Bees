@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="social-content">
-			<p>&#x2709; Join our mailing list</p>
+			<p><i class="fa fa-regular fa-envelope-open"></i> Join our mailing list</p>
 			<input class="footer-email-input" placeholder="Your email" />
 			<button class="footer-email-button">Go</button>
 			<div id="social-footer">
