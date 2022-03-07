@@ -338,6 +338,7 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
 .woocommerce a.button:hover {
     border: 4px solid var(--wp--preset--color--gold);
     background: var(--wp--preset--color--gold);
+    color: var(--wp--preset--color--grey);
 }
 
 .woocommerce ul.products li.product .price {
@@ -364,7 +365,7 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
     display: none;
 }
 
-.product .entry-title {
+.product .entry-title, .post-16 .entry-title, .post-17 .entry-title, .post-18 .entry-title {
     display: initial;
 }
 
@@ -384,8 +385,8 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
 .product_meta a {
     color: var(--wp--preset--color--grey);
     text-transform: uppercase;
-    text-decoration: underline;
-    letter-spacing: 0.1rem;
+    /* text-decoration: underline;
+    letter-spacing: 0.1rem; */
 }
 
 .aioseo-breadcrumbs {
@@ -414,9 +415,246 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
 }
 
 .woocommerce div.product form.cart div.quantity {
-    height: 100%;
+    height: 3rem;
 }
 
-/* .single-product {
-    padding-top: 5rem;
-} */
+.woocommerce .quantity .qty {
+    height: 100%;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: darkgray;
+}
+
+.woocommerce div.product {
+    margin-top: 2rem;
+}
+
+.woocommerce div.product p.price {
+    color: var(--wp--preset--color--brown);
+    margin-top: 0;
+}
+
+/* cart */
+
+.woocommerce-cart table.cart {
+    border: none;
+    border-collapse: separate;
+}
+
+.woocommerce table.shop_table td {
+    padding: 1rem;
+    border: none;
+}
+
+.woocommerce-cart table.cart img {
+    width: 5rem;
+}
+
+.woocommerce a.remove {
+    color: var(--wp--preset--color--brown) !important;
+}
+
+.woocommerce a.remove:hover {
+    background-color: var(--wp--preset--color--brown) !important;
+}
+
+.woocommerce-cart table.cart th {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: normal;
+    font-size: 1.25rem;
+}
+
+.woocommerce-cart-form__cart-item.cart_item {
+    background-color: var(--wp--preset--color--grey);
+    padding: 1rem;
+    border: none;
+}
+
+.woocommerce button.button {
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease-in-out;
+    padding: 1rem 2rem;
+    border-radius: none;
+    border: 3px solid var(--wp--preset--color--brown);
+    color: var(--wp--preset--color--brown);
+    background-color: transparent;
+}
+
+.woocommerce button.button:hover {
+    background: var(--wp--preset--color--brown);
+    color: var(--wp--preset--color--beige);
+}
+
+.woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled] {
+    padding: 1rem 2rem;
+}
+
+.woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover {
+    background-color: transparent;
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+    height: 3.25rem;
+    border: none;
+    width: 15rem;
+    font-size: 1rem;
+    padding: 1rem;
+    margin-right: 0.5rem;
+    color: darkgray;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals table {
+    border: none;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td {
+    border: none;
+}
+
+.woocommerce table.cart td.actions {
+    padding: 1rem 0;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: none;
+    border: 3px solid var(--wp--preset--color--lilac);
+    color: var(--wp--preset--color--grey);
+    background-color: var(--wp--preset--color--lilac);
+    margin-bottom: 5rem;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
+    border: 3px solid var(--wp--preset--color--gold);
+    color: var(--wp--preset--color--brown);
+    background-color: var(--wp--preset--color--gold);
+}
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: var(--wp--preset--color--grey);
+}
+
+.woocommerce form .form-row input.input-text::placeholder {
+    color: darkgray;
+}
+
+.woocommerce-billing-fields h3, #order_review_heading {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.woocommerce-info {
+    border-top-color: var(--wp--preset--color--lilac);
+    margin-top: 1rem;
+}
+
+.woocommerce-info::before {
+    color: var(--wp--preset--color--lilac);
+}
+
+.woocommerce table.shop_table {
+    border: none;
+}
+
+.woocommerce-checkout #payment {
+    background-color: var(--wp--preset--color--gold);
+    margin-bottom: 5rem;
+}
+
+.woocommerce-checkout #payment ul.payment_methods {
+    border: none;
+}
+
+.woocommerce form.checkout_coupon {
+    border: none;
+}
+
+.woocommerce form.login {
+    border: none;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation {
+    background-color: var(--wp--preset--color--grey);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+}
+
+.woocommerce-message {
+    border-top-color: var(--wp--preset--color--lilac);
+}
+
+.post-18 .entry-content {
+    margin-bottom: 5rem;
+}
+
+/* BLOG POST */
+
+.post-thumbnail {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1.5rem solid var(--wp--preset--color--grey);
+}
+
+.blog-entry-header {
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0) calc(100% - 200px), 
+        var(--wp--preset--color--grey) calc(50%)
+    );
+}
+
+.blog-entry-content {
+    background-color: var(--wp--preset--color--grey);
+    margin-bottom: 5rem;
+    padding: 1rem 15rem 10rem 15rem;
+}
+
+.wp-block-post-date {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.post-entry-title {
+    font-family: timberline,sans-serif;
+    font-weight: 400;   
+    font-size: 4rem;
+    text-transform: lowercase;
+    margin: 0;
+    line-height: 7rem;
+}
+
+.blog-entry-header .entry-meta {
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.taxonomy-post_tag a {
+    color: var(--wp--preset--color--gold);
+}
+
+.post-author {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
