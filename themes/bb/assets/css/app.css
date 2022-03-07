@@ -82,12 +82,19 @@ strong {
 }
 
 .sub-menu {
-    display: none;
+    /* display: none; */
+    opacity: 0;
     transition: all 0.3s ease-in-out;
     list-style: none;
     text-align: right;
-    padding-left: 0;
-    padding-top: 0.5rem;
+    margin-top: 2rem;
+    padding: 0 2.5rem 1rem 2.5rem;
+    position: absolute;
+    z-index: 20;
+    width: 100vw;
+    right: 0;
+    background-color: var(--wp--preset--color--grey);
+    transition: all 0.3s ease-in-out;
 }
 
 .hamburger-menu {
@@ -97,7 +104,7 @@ strong {
 }
 
 .hamburger-menu:hover .sub-menu {
-    display: unset;
+    opacity: 1;
 }
 
 /* home page */
@@ -125,6 +132,12 @@ strong {
 
 .home-boxed-image {
     margin-bottom :0;
+}
+
+.home-banner {
+    display: flex;
+    width: 100%;
+    margin: 0;
 }
 
 /* connect sidebar */
@@ -657,4 +670,35 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
 .post-author {
     margin-top: 0;
     margin-bottom: 2rem;
+}
+
+
+/* email sign up */
+#wpforms-form-315 {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+#wpforms-form-315 .wpforms-field-container {
+    width: 50%;
+}
+
+#wpforms-315 .wpforms-form input.wpforms-field-medium {
+    max-width: 95% !important;
+}
+
+#wpforms-form-315 .wpforms-field-container input {
+    padding: 0.75rem;
+    height: auto;
+}
+
+#wpforms-315 .wpforms-form button[type=submit] {
+    background-color: transparent;
+    border: 3px solid var(--wp--preset--color--grey);
+}
+
+#wpforms-315 .wpforms-form button[type=submit]:hover {
+    background-color: var(--wp--preset--color--grey);
+    color: var(--wp--preset--color--lilac);
 }
