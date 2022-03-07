@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header blog-entry-header">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -22,16 +22,27 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				bb_posted_on();
-				bb_posted_by();
+				the_category( ', ' );
+				// bb_posted_on();
+				// bb_posted_by();
 				?>
 			</div><!-- .entry-meta -->
+			<h1 class="post-entry-title">
+				<?php
+				the_title();
+				?>
+			</h1><!-- .entry-title -->
+			<p class="post-author">
+				By
+			<?php
+				the_author();
+				?>
+			</p><!-- .entry-author -->
+			<?php bb_post_thumbnail(); ?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php bb_post_thumbnail(); ?>
-
-	<div class="entry-content">
+	<div class="entry-content blog-entry-content">
 		<?php
 		the_content(
 			sprintf(
