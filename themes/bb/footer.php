@@ -14,8 +14,9 @@
 	<footer id="colophon" class="site-footer">
 		<div class="social-content">
 			<p><i class="fa fa-regular fa-envelope-open"></i> Join our mailing list</p>
-			<input class="footer-email-input" placeholder="Your email" />
-			<button class="footer-email-button">Go</button>
+			<?php echo do_shortcode('[wpforms id="315" title="false"]')?>
+			<!-- <input class="footer-email-input" placeholder="Your email" />
+			<button class="footer-email-button">Go</button> -->
 			<div id="social-footer">
 			<?php
 				get_sidebar( 'social');
