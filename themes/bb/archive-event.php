@@ -29,15 +29,28 @@ get_header();
 				if( $events->have_posts() ) {
 					while( $events->have_posts() ) {
 					$events->the_post();
-					if(has_post_thumbnail()){
-						the_post_thumbnail();}
-					}
-					$price = get_post_meta( get_the_ID(), 'product_price', true );
+					$event_date_box = get_post_meta( get_the_ID(), 'event_date_box', true );
+					$event_permalink = esc_url( get_permalink() );
 					?>
-						<h1><?php the_title() ?></h1>
-						<div class='content'>
-						<?php the_content() ?>
-						</div>
+					<a class="link-no-style" href='<?php echo($event_permalink) ?>' rel="bookmark">
+						<article class="event-list-item">
+							<div class="event-thumb">
+								<?php
+									if(has_post_thumbnail()){
+										the_post_thumbnail();}
+									}
+								?>
+							</div>
+							<div class="event-info">
+								<h2><?php the_title() ?></h2>
+								<h3><?php echo($event_date_box) ?></h3>
+								<div class='content'>
+								<?php the_content() ?>
+								</div>
+							</div>
+						</article>
+					</a>
+						
 					<?php
 					
 				}
