@@ -732,6 +732,12 @@ div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container
 .link-no-style:hover {
     text-decoration: none;
 }
+div.wpforms-container-full.rsvp-form {
+    width: 100%;
+}
+.event-info .rsvp-form {
+    display: none;
+}
 
 
 /* RESPONSIVE */
