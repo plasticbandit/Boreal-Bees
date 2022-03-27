@@ -35,11 +35,11 @@ font-style: italic;
     color: var(--wp--preset--color--brown);
 }
 
-.site-main > *{
+/* .site-main > *{
     width: 1280px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 .alignwide {
     width: 1280px;
@@ -55,6 +55,14 @@ font-style: italic;
 
 .wp-block-post-title, .entry-title {
     font-size: 4rem;
+    font-family: timberline,sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.page-title, .page-title span {
+    font-size: 4rem;
+    line-height: 4.5rem;
     font-family: timberline,sans-serif;
     font-weight: 400;
     text-transform: lowercase;
