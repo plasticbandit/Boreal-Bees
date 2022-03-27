@@ -95,17 +95,19 @@ function bb_setup() {
 	/**
 	 * Add support for custom page title structure & styling (plugin).
 	*/
-
 	add_theme_support( 'wp-block-nicola-gutenberg-composite-title-block' );
 
 }
 add_action( 'after_setup_theme', 'bb_setup' );
 
+/**
+* Add theme support for WooCommerce
+*/
 function bb_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'bb_add_woocommerce_support' );
-
+// remove WooCommerce breadcrumb
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
 
 /**
@@ -117,7 +119,7 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0
  */
 function bb_content_width() {
 	// !CHANGE WIDTH TO MATCH FRONT END
-	$GLOBALS['content_width'] = apply_filters( 'bb_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'bb_content_width', 1280 );
 }
 add_action( 'after_setup_theme', 'bb_content_width', 0 );
 
@@ -177,7 +179,6 @@ add_action( 'widgets_init', 'bb_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-
 function bb_scripts() {
 
 	wp_enqueue_style( 'bb-style', get_stylesheet_uri(), array(), BB_VERSION );
@@ -185,10 +186,7 @@ function bb_scripts() {
         'app-style',
         get_template_directory_uri() . '/assets/css/app.css'
     );
-	// wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
-	// wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/3238166796.js');
 	// register script
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -196,25 +194,122 @@ function bb_scripts() {
 add_action( 'wp_enqueue_scripts', 'bb_scripts' );
 
 /**
-	 * Font Awesome Kit Setup
-	 * 
-	 * This will add your Font Awesome Kit to the front-end, the admin back-end,
-	 * and the login screen area.
-	 */
-	if (! function_exists('fa_custom_setup_kit') ) {
-		function fa_custom_setup_kit($kit_url = '') {
-		foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
-			add_action(
-			$action,
-			function () use ( $kit_url ) {
-				wp_enqueue_script( 'font-awesome-kit', $kit_url, [], null );
-			}
-			);
-		}
-		}
-	}
+* Custom post type setup (Events page)
+*/
+function bb_event_page() {
+	$labels = array(
+		'name'               => _x( 'Events', 'post type general name' ),
+		'singular_name'      => _x( 'Event', 'post type singular name' ),
+		'add_new'            => _x( 'Add New', 'event' ),
+		'add_new_item'       => __( 'Add New Event' ),
+		'edit_item'          => __( 'Edit Event' ),
+		'new_item'           => __( 'New Event' ),
+		'all_items'          => __( 'All Events' ),
+		'view_item'          => __( 'View Event' ),
+		'search_items'       => __( 'Search Events' ),
+		'not_found'          => __( 'No events found' ),
+		'not_found_in_trash' => __( 'No events found in the Trash' ), 
+		'parent_item_colon'  => '',
+		'menu_name'          => 'Events'
+	);
+	$args = array(
+		'labels'        => $labels,
+		'description'   => 'A list of all future & past events held by Boreal Bees.',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+		'has_archive'   => true,
+	);
+	register_post_type( 'event', $args ); 
+}
+add_action( 'init', 'bb_event_page' );
 
-	fa_custom_setup_kit('https://kit.fontawesome.com/3238166796.js');
+/**
+ * Update messages for custom post type (Events)
+ */
+function event_messages( $messages ) {
+	global $post, $post_ID;
+	$messages['event'] = array(
+		0  => '', // Unused. Messages start at index 1.
+		1 => sprintf( __('Event updated. <a href="%s">View product</a>'), esc_url( get_permalink($post_ID) ) ),
+		2 => __('Custom field updated.'),
+		3 => __('Custom field deleted.'),
+		4 => __('Event updated.'),
+		5 => isset($_GET['revision']) ? sprintf( __('Event restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+		6 => sprintf( __('Event published. <a href="%s">View event</a>'), esc_url( get_permalink($post_ID) ) ),
+		7 => __('Event saved.'),
+		8 => sprintf( __('Event submitted. <a target="_blank" href="%s">Preview event</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+		9 => sprintf( __('Event scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview event</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+		10 => sprintf( __('Event draft updated. <a target="_blank" href="%s">Preview event</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+	);
+	return $messages;
+}
+add_filter( 'post_updated_messages', 'event_messages' );
+
+/**
+ * Add contextual help for custom post type (Events)
+ */
+function bb_event_contextual_help( $contextual_help, $screen_id, $screen ) { 
+if ( 'event' == $screen->id ) {
+
+	$contextual_help = '<h2>Events</h2>
+	<p>Events show the details of upcoming special events hosted by Boreal Bees. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
+	<p>You can view/edit the details of each event by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
+
+} elseif ( 'edit-event' == $screen->id ) {
+
+	$contextual_help = '<h2>Editing events</h2>
+	<p>This page allows you to view/modify event details. Please make sure to fill out the available boxes with the appropriate details and <strong>not</strong> add these details to the event description.</p>';
+
+}
+return $contextual_help;
+}
+add_action( 'contextual_help', 'bb_event_contextual_help', 10, 3 );
+
+/**
+ * Custom taxonomies for Events page
+ */
+function bb_taxonomies_event() {
+	$labels = array(
+		'name'              => _x( 'Event Categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Event Category', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Event Categories' ),
+		'all_items'         => __( 'All Event Categories' ),
+		'parent_item'       => __( 'Parent Event Category' ),
+		'parent_item_colon' => __( 'Parent Event Category:' ),
+		'edit_item'         => __( 'Edit Event Category' ), 
+		'update_item'       => __( 'Update Event Category' ),
+		'add_new_item'      => __( 'Add New Event Category' ),
+		'new_item_name'     => __( 'New Event Category' ),
+		'menu_name'         => __( 'Event Categories' ),
+	);
+	$args = array(
+	'labels' => $labels,
+	'hierarchical' => true,
+	);
+register_taxonomy( 'event_category', 'event', $args );
+}
+add_action( 'init', 'bb_taxonomies_event', 0 );
+
+/**
+ * Font Awesome Kit Setup
+ * 
+ * This will add your Font Awesome Kit to the front-end, the admin back-end,
+ * and the login screen area.
+ */
+if (! function_exists('fa_custom_setup_kit') ) {
+	function fa_custom_setup_kit($kit_url = '') {
+	foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
+		add_action(
+		$action,
+		function () use ( $kit_url ) {
+			wp_enqueue_script( 'font-awesome-kit', $kit_url, [], null );
+		}
+		);
+	}
+	}
+}
+fa_custom_setup_kit('https://kit.fontawesome.com/3238166796.js');
 
 /**
  * Custom template tags for this theme.
