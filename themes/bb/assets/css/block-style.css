@@ -35,12 +35,6 @@ font-style: italic;
     color: var(--wp--preset--color--brown);
 }
 
-/* .site-main > *{
-    width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
 .alignwide {
     width: 1280px;
     margin-left: auto;
