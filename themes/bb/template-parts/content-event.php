@@ -18,13 +18,12 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) :
+		if ( 'event' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
 				<?php
 				the_category( ', ' );
-				// bb_posted_on();
-				// bb_posted_by();
+				echo get_the_term_list( get_the_ID(), 'event_category' );
 				?>
 			</div><!-- .entry-meta -->
 			<h1 class="post-entry-title">
@@ -32,13 +31,15 @@
 				the_title();
 				?>
 			</h1><!-- .entry-title -->
-			<p class="post-author">
-				By
-			<?php
-				the_author();
+			<h3>
+				<?php
+				echo get_post_meta( get_the_ID(), 'event_date_box', true );
 				?>
-			</p><!-- .entry-author -->
-			<?php bb_post_thumbnail(); ?>
+			</h3><!-- .entry-date -->
+			<div class="post-thumbnail">
+				<?php if(has_post_thumbnail()){
+					the_post_thumbnail();} ?>
+			</div><!-- .entry-thumbnail -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
