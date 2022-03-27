@@ -12,8 +12,6 @@ get_header();
 
 	<main id="primary" class="site-main event-post-single">
 
-		<p>Got here/</p>
-
 		<?php
 		while ( have_posts() ) :
 			the_post();
