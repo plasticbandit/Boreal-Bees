@@ -14,11 +14,7 @@
 
 get_header();
 ?>
-<!-- <div class="breadcrumb-container">
-	<i class="fa fa-solid fa-house-chimney"></i>
-	<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-</div> -->
-<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
+<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?><!-- .breadcrumbs -->
 
 	<main id="primary" class="site-main">
 

@@ -15,13 +15,11 @@
 		<div class="social-content">
 			<p><i class="fa fa-regular fa-envelope-open"></i> Join our mailing list</p>
 			<?php echo do_shortcode('[wpforms id="315" title="false"]')?>
-			<!-- <input class="footer-email-input" placeholder="Your email" />
-			<button class="footer-email-button">Go</button> -->
 			<div id="social-footer">
 			<?php
 				get_sidebar( 'social');
 			?>
-			</div>
+			</div><!-- .social-footer -->
 		</div>
 		<div class="footer-icon-container">
 		<img class="footer-logo-icon" src="<?php site_icon_url()?>" alt="Boreal Bees" />

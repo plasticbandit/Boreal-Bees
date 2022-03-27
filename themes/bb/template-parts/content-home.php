@@ -9,12 +9,6 @@
 
 ?>
 
-<!-- <style>
-	.home-banner {
-		background-image: url(<?php wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')?>);
-	}
-</style> -->
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 

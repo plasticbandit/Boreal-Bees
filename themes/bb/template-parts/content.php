@@ -23,8 +23,6 @@
 			<div class="entry-meta">
 				<?php
 				the_category( ', ' );
-				// bb_posted_on();
-				// bb_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 			<h1 class="post-entry-title">
@@ -67,8 +65,5 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<!-- <footer class="entry-footer">
-		<?php bb_entry_footer(); ?>
-	</footer>.entry-footer -->
+	
 </article><!-- #post-<?php the_ID(); ?> -->

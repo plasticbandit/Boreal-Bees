@@ -13,9 +13,6 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main site-home">
-	<!-- <section class="home-banner">
-		<?php the_post_thumbnail( ) ?>
-	</section> -->
 
 		<?php
 		while ( have_posts() ) :
@@ -33,7 +30,6 @@ get_header();
 
 	</main><!-- #main -->
     
-<!-- insert social widgets -->
 <?php
 get_sidebar( 'products' );
 get_footer();
