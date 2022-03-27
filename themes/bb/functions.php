@@ -223,6 +223,7 @@ function bb_event_page() {
 	register_post_type( 'event', $args ); 
 }
 add_action( 'init', 'bb_event_page' );
+
 /**
  * Add custom meta boxes for event
  */
@@ -263,6 +264,7 @@ function event_date_box_save( $post_id ) {
 	update_post_meta( $post_id, 'event_date_box', $event_date_box );
 }
 add_action( 'save_post', 'event_date_box_save' );
+
 /**
  * Update messages for custom post type (Events)
  */
@@ -290,13 +292,11 @@ add_filter( 'post_updated_messages', 'event_messages' );
  */
 function bb_event_contextual_help( $contextual_help, $screen_id, $screen ) { 
 if ( 'event' == $screen->id ) {
-
 	$contextual_help = '<h2>Events</h2>
 	<p>Events show the details of upcoming special events hosted by Boreal Bees. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
 	<p>You can view/edit the details of each event by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
 
 } elseif ( 'edit-event' == $screen->id ) {
-
 	$contextual_help = '<h2>Editing events</h2>
 	<p>This page allows you to view/modify event details. Please make sure to fill out the available boxes with the appropriate details and <strong>not</strong> add these details to the event description.</p>';
 
@@ -329,6 +329,18 @@ function bb_taxonomies_event() {
 register_taxonomy( 'event_category', 'event', $args );
 }
 add_action( 'init', 'bb_taxonomies_event', 0 );
+
+/**
+ * Custom title for Events archive
+ */
+add_filter( 'get_the_archive_title', function ( $title ) {
+
+    if( is_post_type_archive( 'event' ) ) {
+        $title = 'Events';
+    }
+
+    return $title;
+});
 
 /**
  * Font Awesome Kit Setup
