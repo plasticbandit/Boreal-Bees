@@ -9,6 +9,7 @@
 
 get_header();
 ?>
+<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?><!-- breadcrumbs -->
 
 	<main id="primary" class="site-main event-post-single">
 
@@ -36,5 +37,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-// get_sidebar();
 get_footer();
