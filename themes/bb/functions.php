@@ -217,13 +217,52 @@ function bb_event_page() {
 		'description'   => 'A list of all future & past events held by Boreal Bees.',
 		'public'        => true,
 		'menu_position' => 5,
-		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 		'has_archive'   => true,
 	);
 	register_post_type( 'event', $args ); 
 }
 add_action( 'init', 'bb_event_page' );
+/**
+ * Add custom meta boxes for event
+ */
+// define meta box
+add_action( 'add_meta_boxes', 'event_date_box' );
+function event_date_box() {
+    add_meta_box( 
+        'event_date_box',
+        __( 'Event Date', 'myplugin_textdomain' ),
+        'event_date_box_content',
+        'event',
+        'side',
+        'high'
+    );
+}
+// define contents
+function event_date_box_content( $post ) {
+	wp_nonce_field( plugin_basename( __FILE__ ), 'event_date_box_content_nonce' );
+	echo '<label for="event_date_box"></label>';
+	echo '<input type="date" id="event_date_box" name="event_date_box" />';
+}
+// define custom field
+function event_date_box_save( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+	return;
 
+	if ( !wp_verify_nonce( $_POST['event_date_box_content_nonce'], plugin_basename( __FILE__ ) ) )
+	return;
+
+	if ( 'page' == $_POST['event'] ) {
+	if ( !current_user_can( 'edit_page', $post_id ) )
+	return;
+	} else {
+	if ( !current_user_can( 'edit_post', $post_id ) )
+	return;
+	}
+	$event_date_box = $_POST['event_date_box'];
+	update_post_meta( $post_id, 'event_date_box', $event_date_box );
+}
+add_action( 'save_post', 'event_date_box_save' );
 /**
  * Update messages for custom post type (Events)
  */
@@ -231,7 +270,7 @@ function event_messages( $messages ) {
 	global $post, $post_ID;
 	$messages['event'] = array(
 		0  => '', // Unused. Messages start at index 1.
-		1 => sprintf( __('Event updated. <a href="%s">View product</a>'), esc_url( get_permalink($post_ID) ) ),
+		1 => sprintf( __('Event updated. <a href="%s">View event</a>'), esc_url( get_permalink($post_ID) ) ),
 		2 => __('Custom field updated.'),
 		3 => __('Custom field deleted.'),
 		4 => __('Event updated.'),
